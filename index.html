@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ahmed Abdelwahed | Portfolio</title>
+
+    <meta name="description"
+          content="Ahmed Abdelwahed's personal portfolio, programming skills and projects.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f0b1e;
+            color: #f5f3ff;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* Navigation */
+
+        nav {
+            background: #17112b;
+            padding: 18px 0;
+            border-bottom: 1px solid #30234d;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #c084fc;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 22px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav ul a {
+            color: #ddd6fe;
+            transition: 0.3s;
+        }
+
+        nav ul a:hover {
+            color: #c084fc;
+        }
+
+        /* Hero Section */
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 70px 0;
+            background: radial-gradient(
+                circle at top,
+                #30204d 0%,
+                #0f0b1e 65%
+            );
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .profile-photo {
+            width: 165px;
+            height: 165px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #c084fc;
+            box-shadow: 0 0 30px #8b5cf655;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 6vw, 52px);
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            color: #c084fc;
+        }
+
+        .hero h2 {
+            font-size: 22px;
+            color: #d8b4fe;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .hero p {
+            color: #c4b5fd;
+            max-width: 650px;
+            margin: 0 auto 28px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #a855f7;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #9333ea;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 1px solid #c084fc;
+            color: #e9d5ff;
+        }
+
+        .btn-outline:hover {
+            background: #7e22ce;
+            transform: translateY(-3px);
+        }
+
+        /* General Sections */
+
+        section {
+            padding: 75px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .section-title span {
+            color: #c084fc;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #c4b5fd;
+            max-width: 650px;
+            margin: 0 auto 40px;
+        }
+
+        /* About */
+
+        .about-box {
+            background: #17112b;
+            border: 1px solid #30234d;
+            padding: 30px;
+            border-radius: 15px;
+            color: #ddd6fe;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .about-box p {
+            margin-bottom: 15px;
+        }
+
+        /* Skills */
+
+        .skills {
+            background: #130e23;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(220px, 1fr)
+            );
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #1c1532;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #35234f;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #a855f7;
+        }
+
+        .skill-card h3 {
+            color: #d8b4fe;
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            color: #c4b5fd;
+            font-size: 15px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: #30204d;
+            color: #e9d5ff;
+            padding: 6px 12px;
+            margin: 5px 3px 0 0;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        /* Projects */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(240px, 1fr)
+            );
+            gap: 22px;
+        }
+
+        .project-card {
+            background: #17112b;
+            border: 1px solid #30234d;
+            border-radius: 13px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: #a855f7;
+        }
+
+        .project-number {
+            font-size: 30px;
+            font-weight: bold;
+            color: #a855f7;
+            margin-bottom: 10px;
+        }
+
+        .project-card h3 {
+            color: #e9d5ff;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #c4b5fd;
+            margin-bottom: 18px;
+            font-size: 15px;
+        }
+
+        .project-link {
+            color: #c084fc;
+            font-weight: bold;
+        }
+
+        .project-link:hover {
+            color: white;
+        }
+
+        /* Contact */
+
+        .contact {
+            background: #130e23;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact-box p {
+            color: #c4b5fd;
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            background: #0b0815;
+            color: #a78bfa;
+            border-top: 1px solid #30234d;
+            font-size: 14px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+            .nav-content {
+                justify-content: center;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 65px 0;
+            }
+
+            .hero h2 {
+                font-size: 19px;
+            }
+
+            section {
+                padding: 55px 0;
+            }
+
+            .section-title {
+                font-size: 27px;
+            }
+
+            .about-box {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav>
+        <div class="container nav-content">
+
+            <div class="logo">Ahmed.dev</div>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+
+    <header class="hero" id="home">
+        <div class="container hero-content">
+
+            <img
+                src="IMG_20260621_231921.jpg"
+                alt="Ahmed Abdelwahed"
+                class="profile-photo"
+            >
+
+            <h1>
+                Hi, I'm <span>Ahmed Abdelwahed</span>
+            </h1>
+
+            <h2>Programmer | Web Developer</h2>
+
+            <p>
+                I am a motivated programming enthusiast interested in
+                software development, web technologies, and problem-solving.
+                I enjoy writing organized code, improving performance,
+                and learning new technologies step by step.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn btn-primary">
+                    View My Projects
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Me
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- About Section -->
+
+    <section id="about">
+        <div class="container">
+
+            <h2 class="section-title">
+                About <span>Me</span>
+            </h2>
+
+            <p class="section-description">
+                A little introduction about me and my interests.
+            </p>
+
+            <div class="about-box">
+
+                <p>
+                    I am a programming enthusiast with an interest in
+                    building useful software and developing modern websites.
+                    I focus on understanding programming fundamentals
+                    and applying them to practical projects.
+                </p>
+
+                <p>
+                    I value clean code, logical thinking, organization,
+                    and continuous learning. My goal is to strengthen
+                    my technical skills and gain practical experience
+                    by working on increasingly challenging projects.
+                </p>
+
+                <p>
+                    I believe that consistent practice, curiosity,
+                    and attention to detail are essential for becoming
+                    a better developer.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+
+    <section class="skills" id="skills">
+        <div class="container">
+
+            <h2 class="section-title">
+                My <span>Skills</span>
+            </h2>
+
+            <p class="section-description">
+                Technologies and skills I am learning and developing.
+            </p>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <h3>Python</h3>
+
+                    <p>
+                        Understanding programming fundamentals,
+                        variables, conditions, loops, and functions.
+                    </p>
+
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Logic</span>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Java</h3>
+
+                    <p>
+                        Learning object-oriented programming,
+                        code structure, and software development basics.
+                    </p>
+
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">OOP</span>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Web Development</h3>
+
+                    <p>
+                        Building web pages and learning how websites
+                        are structured and styled.
+                    </p>
+
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Backend Development</h3>
+
+                    <p>
+                        Exploring server-side programming, application
+                        logic, and the fundamentals of backend systems.
+                    </p>
+
+                    <span class="skill-tag">Backend</span>
+                    <span class="skill-tag">Programming</span>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Problem Solving</h3>
+
+                    <p>
+                        Breaking complex problems into smaller steps
+                        and developing logical solutions.
+                    </p>
+
+                    <span class="skill-tag">Logic</span>
+                    <span class="skill-tag">Analysis</span>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Personal Skills</h3>
+
+                    <p>
+                        Continuous learning, organized coding,
+                        attention to detail, and improving performance
+                        step by step.
+                    </p>
+
+                    <span class="skill-tag">Organization</span>
+                    <span class="skill-tag">Learning</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+
+    <section id="projects">
+        <div class="container">
+
+            <h2 class="section-title">
+                My <span>Projects</span>
+            </h2>
+
+            <p class="section-description">
+                A collection of projects and practical work.
+            </p>
+
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-number">01</div>
+
+                    <h3>Personal Portfolio</h3>
+
+                    <p>
+                        A personal website presenting my profile,
+                        programming skills, projects, and contact
+                        information using HTML and CSS.
+                    </p>
+
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+
+                    <br><br>
+
+                    <a
+                        href="https://github.com/Ahmedaa-pixel"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-link"
+                    >
+                        View on GitHub →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">02</div>
+
+                    <h3>Python Applications</h3>
+
+                    <p>
+                        Practice applications designed to improve
+                        programming logic, problem-solving skills,
+                        and understanding of Python fundamentals.
+                    </p>
+
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Logic</span>
+
+                    <br><br>
+
+                    <a
+                        href="https://github.com/Ahmedaa-pixel"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-link"
+                    >
+                        View on GitHub →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">03</div>
+
+                    <h3>Java Practice Projects</h3>
+
+                    <p>
+                        Small programming exercises focused on
+                        Java fundamentals, object-oriented concepts,
+                        and writing structured code.
+                    </p>
+
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">OOP</span>
+
+                    <br><br>
+
+                    <a
+                        href="https://github.com/Ahmedaa-pixel"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-link"
+                    >
+                        View on GitHub →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">04</div>
+
+                    <h3>Web Development Practice</h3>
+
+                    <p>
+                        Web development exercises focused on creating
+                        structured pages, styling interfaces,
+                        and improving the user experience.
+                    </p>
+
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+
+                    <br><br>
+
+                    <a
+                        href="https://github.com/Ahmedaa-pixel"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-link"
+                    >
+                        View on GitHub →
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+
+    <section class="contact" id="contact">
+        <div class="container contact-box">
+
+            <h2 class="section-title">
+                Get In <span>Touch</span>
+            </h2>
+
+            <p>
+                Feel free to explore my GitHub profile and follow
+                my progress as I continue learning and building
+                programming projects.
+            </p>
+
+            <div class="contact-links">
+
+                <a
+                    href="https://github.com/Ahmedaa-pixel"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+                    GitHub Profile
+                </a>
+
+                <a
+                    href="mailto:am7932870@gmail.com"
+                    class="btn btn-outline"
+                >
+                    Email Me
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+        <p>
+            © 2026 Ahmed Abdelwahed. All rights reserved.
+        </p>
+
+        <p>
+            Built with HTML and CSS.
+        </p>
+    </footer>
+
+</body>
+  </html>
